@@ -1,37 +1,41 @@
-number1 = input("Enter a number: ")
+# Validate first number
+first_number = input("Enter the first number: ")
+
 try:
-    number1 = float(number1)
+    first_number = float(first_number)
 except ValueError:
-    print("That's not a number!!")
-    exit()
-    
-operator = input("Which operator: ")
-if operator not in ["+", "-", "*", "/"]:
-    print("Input a correct operator!!")
+    print("Invalid input: please enter a numeric value (e.g. 10 or 3.5).")
     exit()
 
-number2 = input("Enter a number: ")
-try:
-    number2 = float(number2)
-except ValueError:
-    print("That's not a number!!")
+# Validate operator
+selected_operator = input("Choose an operator (+, -, *, /): ")
+
+if selected_operator not in ["+", "-", "*", "/"]:
+    print("Invalid operator. Allowed operators are: + - * /")
     exit()
 
-if operator == "+":
-    result = number1 + number2
-    print(result)
-elif operator == "-":
-    result = number1 - number2
-    print(result)
-elif operator == "*":
-    result = number1 * number2
-    print(result)
-elif operator == "/":
-    if number2 == 0:
-        print("Cannot divide by zero")
+# Validate second number
+second_number = input("Enter the second number:")
+
+try:
+    second_number = float(second_number)
+except ValueError:
+    print("Invalid input: please enter a numeric value (e.g. 10 or 3.5).")
+    exit()
+
+# Perform calculation based on the selected operator
+if selected_operator == "+":
+    calculation_result = first_number + second_number
+    print(calculation_result)
+elif selected_operator == "-":
+    calculation_result = first_number - second_number
+    print(calculation_result)
+elif selected_operator == "*":
+    calculation_result = first_number * second_number
+    print(calculation_result)
+elif selected_operator == "/":
+    if second_number == 0:
+        print("Math error: division by zero is not allowed.")
         exit()
-    result = number1 / number2
-    print(result)
-else:
-    print("Input a correct operator!!")
-
+    calculation_result = first_number / second_number
+    print(calculation_result)
